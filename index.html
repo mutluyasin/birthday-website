@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İyi ki Doğdun Aşkım</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6e7, #ffeef5, #fff8fb);
+      color: #4b1f2e;
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: rgba(255, 105, 180, 0.35);
+      animation: floatUp linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .subtitle {
+      margin-bottom: 22px;
+      color: #6d3147;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff4f8b;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      background: #e93d79;
+    }
+
+    section {
+      margin: 28px 0;
+    }
+
+    .message-box {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .photo {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      text-align: center;
+      padding-bottom: 12px;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo span {
+      display: block;
+      padding: 10px 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .love-note {
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 0 40px;
+      color: #7a4960;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>İyi ki Doğdun Aşkım 💖</h1>
+        <p class="subtitle">
+          Bugün senin günün ve iyi ki hayatımdasın.
+        </p>
+        <p>
+          Bu küçük siteyi senin için hazırladım. Çünkü bazen kelimeler yetmiyor,
+          ama yine de seni ne kadar sevdiğimi anlatmak istedim.
+        </p>
+        <button class="btn" onclick="document.getElementById('surprise').scrollIntoView({behavior:'smooth'})">
+          Sürprizi Aç
+        </button>
+      </div>
+    </section>
+
+    <section id="surprise" class="reveal">
+      <div class="message-box">
+        <h2>Canımın İçi,</h2>
+        <p>
+          Hayatıma geldiğin günden beri birçok şey daha güzel oldu.
+          Gülüşün, enerjin, bana hissettirdiklerin...
+          Hepsi benim için çok özel.
+        </p>
+        <p class="love-note">
+          Seninle geçen her anı çok seviyorum. Nice mutlu, sağlıklı, huzurlu yaşlara birlikte. ✨
+        </p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="message-box">
+        <h2>Neden Seni Seviyorum?</h2>
+        <p>• Gülüşün tüm günümü güzelleştiriyor.</p>
+        <p>• Yanımdayken her şey daha anlamlı geliyor.</p>
+        <p>• Hem en tatlı anlarımda hem de zor zamanlarımda kalbime iyi geliyorsun.</p>
+        <p>• Sen, gerçekten benim için çok özelsin.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="message-box">
+        <h2>Birlikte Anılarımız 📸</h2>
+        <div class="gallery">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop" alt="Anı 1">
+            <span>İlk güzel anılarımızdan biri</span>
+          </div>
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop" alt="Anı 2">
+            <span>Birlikte geçen en tatlı günlerden</span>
+          </div>
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop" alt="Anı 3">
+            <span>Daha nice fotoğraflara</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="message-box" style="text-align:center;">
+        <h2>Son Bir Şey...</h2>
+        <p>
+          İyi ki doğdun, iyi ki varsın, iyi ki benimlesin. ❤️
+        </p>
+        <button class="btn" onclick="playMusic()">Müziği Başlat 🎵</button>
+        <p class="small" style="margin-top:12px;">
+          Kendi şarkını eklemek istersen alttaki audio dosyasını değiştirmen yeterli.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      Senin için sevgiyle hazırlandı 💌
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const heartsContainer = document.getElementById("hearts");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+      heart.style.fontSize = (16 + Math.random() * 20) + "px";
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(createHeart, 350);
+
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play().catch(() => {
+        alert("Müzik başlatılamadı. music.mp3 dosyasını eklediğinden emin ol.");
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
