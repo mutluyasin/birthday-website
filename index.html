@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,6 +10,10 @@
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -30,7 +33,7 @@
     .heart {
       position: absolute;
       bottom: -20px;
-      color: rgba(255, 105, 180, 0.35);
+      color: rgba(255, 105, 180, 0.28);
       animation: floatUp linear infinite;
       font-size: 20px;
     }
@@ -52,9 +55,9 @@
     .container {
       position: relative;
       z-index: 1;
-      max-width: 950px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 20px;
     }
 
     .hero {
@@ -65,33 +68,26 @@
       text-align: center;
     }
 
-    .card {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(8px);
-      border-radius: 24px;
-      padding: 32px 24px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    .hero-card {
       width: 100%;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 36px 24px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
       margin-bottom: 14px;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-    }
-
-    p {
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-
     .subtitle {
-      margin-bottom: 22px;
+      font-size: 1.08rem;
+      line-height: 1.7;
       color: #6d3147;
+      max-width: 700px;
+      margin: 0 auto 24px;
     }
 
     .btn {
@@ -100,12 +96,12 @@
       color: white;
       border: none;
       border-radius: 999px;
-      padding: 14px 24px;
+      padding: 14px 26px;
       font-size: 1rem;
       cursor: pointer;
       transition: 0.25s ease;
       text-decoration: none;
-      margin-top: 18px;
+      box-shadow: 0 10px 24px rgba(255, 79, 139, 0.25);
     }
 
     .btn:hover {
@@ -113,75 +109,151 @@
       background: #e93d79;
     }
 
-    section {
-      margin: 28px 0;
-    }
-
-    .message-box {
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .photo {
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      text-align: center;
-      padding-bottom: 12px;
-    }
-
-    .photo img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo span {
-      display: block;
-      padding: 10px 8px 0;
-      font-size: 0.95rem;
-    }
-
-    .reveal {
+    .gallery-section {
+      margin: 10px 0 40px;
       opacity: 0;
-      transform: translateY(25px);
+      transform: translateY(30px);
       transition: 0.7s ease;
     }
 
-    .reveal.show {
+    .gallery-section.show {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .love-note {
-      font-size: 1.1rem;
-      margin-top: 12px;
+    .gallery-box {
+      background: rgba(255, 255, 255, 0.86);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .gallery-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .gallery-desc {
+      text-align: center;
+      color: #7a4960;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-slider {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      width: 100%;
+      padding: 6px 2px 10px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .photo-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex: 0 0 auto;
+      width: 290px;
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      scroll-snap-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      display: block;
+      background: #f5d9e3;
+    }
+
+    .caption {
+      padding: 14px 14px 16px;
+      text-align: center;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #5f3041;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-btn {
+      border: none;
+      background: #ff4f8b;
+      color: white;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 1.7rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      transition: 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      transform: scale(1.08);
+      background: #e93d79;
     }
 
     .footer {
       text-align: center;
-      padding: 20px 0 40px;
+      padding: 10px 0 36px;
       color: #7a4960;
-    }
-
-    .small {
       font-size: 0.95rem;
-      opacity: 0.9;
     }
 
-    audio {
-      display: none;
+    @media (max-width: 700px) {
+      .container {
+        padding: 16px;
+      }
+
+      .hero-card,
+      .gallery-box {
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 2.05rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .slider-btn {
+        display: none;
+      }
+
+      .slide {
+        width: 84%;
+      }
+
+      .slide img {
+        height: 430px;
+      }
+
+      .caption {
+        min-height: 66px;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -190,75 +262,106 @@
 
   <div class="container">
     <section class="hero">
-      <div class="card">
+      <div class="hero-card">
         <h1>İyi ki Doğdun Aşkım 💖</h1>
         <p class="subtitle">
-          Bugün senin günün ve iyi ki hayatımdasın.
+          Seninle olan anılarımızın küçük bir yeri olsun istedim.
         </p>
-        <p>
-          Bu küçük siteyi senin için hazırladım. Çünkü bazen kelimeler yetmiyor,
-          ama yine de seni ne kadar sevdiğimi anlatmak istedim.
-        </p>
-        <button class="btn" onclick="document.getElementById('surprise').scrollIntoView({behavior:'smooth'})">
+        <button class="btn" onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })">
           Sürprizi Aç
         </button>
       </div>
     </section>
 
-    <section id="surprise" class="reveal">
-      <div class="message-box">
-        <h2>Canımın İçi,</h2>
-        <p>
-          Hayatıma geldiğin günden beri birçok şey daha güzel oldu.
-          Gülüşün, enerjin, bana hissettirdiklerin...
-          Hepsi benim için çok özel.
-        </p>
-        <p class="love-note">
-          Seninle geçen her anı çok seviyorum. Nice mutlu, sağlıklı, huzurlu yaşlara birlikte. ✨
-        </p>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <div class="message-box">
-        <h2>Neden Seni Seviyorum?</h2>
-        <p>• Gülüşün tüm günümü güzelleştiriyor.</p>
-        <p>• Yanımdayken her şey daha anlamlı geliyor.</p>
-        <p>• Hem en tatlı anlarımda hem de zor zamanlarımda kalbime iyi geliyorsun.</p>
-        <p>• Sen, gerçekten benim için çok özelsin.</p>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <div class="message-box">
-        <h2>Birlikte Anılarımız 📸</h2>
-        <div class="gallery">
-          <div class="photo">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop" alt="Anı 1">
-            <span>İlk güzel anılarımızdan biri</span>
-          </div>
-          <div class="photo">
-            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop" alt="Anı 2">
-            <span>Birlikte geçen en tatlı günlerden</span>
-          </div>
-          <div class="photo">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop" alt="Anı 3">
-            <span>Daha nice fotoğraflara</span>
-          </div>
+    <section id="gallery" class="gallery-section">
+      <div class="gallery-box">
+        <div class="gallery-title">Birlikte Anılarımız 📸</div>
+        <div class="gallery-desc">
+          Her fotoğrafın ayrı bir güzelliği, her anın ayrı bir anlamı var.
         </div>
-      </div>
-    </section>
 
-    <section class="reveal">
-      <div class="message-box" style="text-align:center;">
-        <h2>Son Bir Şey...</h2>
-        <p>
-          İyi ki doğdun, iyi ki varsın, iyi ki benimlesin. ❤️
-        </p>
-        <button class="btn" onclick="playMusic()">Müziği Başlat 🎵</button>
-        <p class="small" style="margin-top:12px;">
-          Kendi şarkını eklemek istersen alttaki audio dosyasını değiştirmen yeterli.
-        </p>
+        <div class="slider-wrapper">
+          <button class="slider-btn" onclick="scrollGallery(-1)">‹</button>
+
+          <div class="photo-slider" id="photoSlider">
+            <div class="slide">
+              <img src="images/foto1.jpeg" alt="Biz 1" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto2.jpeg" alt="Biz 2" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto3.jpeg" alt="Biz 3" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto4.jpeg" alt="Biz 4" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto5.jpeg" alt="Biz 5" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto6.jpeg" alt="Biz 6" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto7.jpeg" alt="Biz 7" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto8.jpeg" alt="Biz 8" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto9.jpeg" alt="Biz 9" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto10.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+
+            <div class="slide">
+              <img src="images/foto11.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+            <div class="slide">
+              <img src="images/foto12.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+            <div class="slide">
+              <img src="images/foto13.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+            <div class="slide">
+              <img src="images/foto14.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+            <div class="slide">
+              <img src="images/foto15.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+            <div class="slide">
+              <img src="images/foto16.jpeg" alt="Biz 10" />
+              <div class="caption">Buraya kısa yazını yaz</div>
+            </div>
+          </div>
+
+          <button class="slider-btn" onclick="scrollGallery(1)">›</button>
+        </div>
       </div>
     </section>
 
@@ -266,10 +369,6 @@
       Senin için sevgiyle hazırlandı 💌
     </div>
   </div>
-
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
 
   <script>
     const heartsContainer = document.getElementById("hearts");
@@ -290,22 +389,26 @@
 
     setInterval(createHeart, 350);
 
-    function playMusic() {
-      const music = document.getElementById("bgMusic");
-      music.play().catch(() => {
-        alert("Müzik başlatılamadı. music.mp3 dosyasını eklediğinden emin ol.");
+    function scrollGallery(direction) {
+      const slider = document.getElementById("photoSlider");
+      const scrollAmount = 310;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
       });
     }
 
+    const gallerySection = document.querySelector(".gallery-section");
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    observer.observe(gallerySection);
   </script>
 </body>
 </html>
