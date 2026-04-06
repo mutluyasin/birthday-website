@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İyi ki Doğdun Aşkım</title>
 
   <style>
@@ -19,7 +19,30 @@
       color: #4b1f2e;
     }
 
+    /* ❤️ FLOATING HEARTS */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
     .container {
+      position: relative;
+      z-index: 1;
       max-width: 900px;
       margin: 0 auto;
       padding: 16px;
@@ -34,7 +57,7 @@
     }
 
     .hero-card {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       padding: 32px;
       border-radius: 24px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
@@ -52,12 +75,7 @@
       border: none;
       padding: 12px 24px;
       border-radius: 999px;
-      font-size: 1rem;
       cursor: pointer;
-    }
-
-    .gallery-section {
-      margin-top: 20px;
     }
 
     .slider-shell {
@@ -88,7 +106,6 @@
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    /* 🔥 EN ÖNEMLİ KISIM (crop yok) */
     .slide img {
       width: 100%;
       height: 70vh;
@@ -100,8 +117,6 @@
     .caption {
       text-align: center;
       padding: 12px;
-      font-size: 1rem;
-      color: #5f3041;
     }
 
     .slider-btn {
@@ -114,7 +129,6 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      font-size: 1.5rem;
       cursor: pointer;
     }
 
@@ -124,23 +138,31 @@
     .counter {
       text-align: center;
       margin-top: 8px;
-      font-size: 0.9rem;
-      color: #7a4960;
     }
 
-    @media (max-width: 700px) {
-      .slide img {
-        height: 65vh;
-      }
+    /* 🎉 CONFETTI */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      background: red;
+      animation: confettiFall 3s linear forwards;
+      z-index: 999;
+    }
 
-      .slider-btn {
-        display: none;
+    @keyframes confettiFall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
       }
     }
   </style>
 </head>
 
 <body>
+
+<div class="hearts" id="hearts"></div>
 
 <div class="container">
 
@@ -153,7 +175,7 @@
     </div>
   </section>
 
-  <section id="gallery" class="gallery-section">
+  <section id="gallery">
 
     <div class="slider-shell">
       <button class="slider-btn left" onclick="scrollGallery(-1)">‹</button>
@@ -161,22 +183,18 @@
       <div class="photo-slider" id="slider">
 
         <!-- FOTOĞRAFLAR -->
-        <!-- Aynı yapıyı kopyalayarak artırabilirsin -->
+        <!-- sadece captionları değiştirebilirsin -->
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto1.jpeg"><div class="caption">Çiçekli bahçemin en güzel çiçeği 🌸</div>
+          <img src="images/foto1.jpeg"><div class="caption">O güzel kıvırcıklarınla benim olduğun ilk ayna 💖</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto2.jpeg"><div class="caption">Milli takımımıza dünya kupasında başarılar dileriz 🇹🇷😄</div>
+          <img src="images/foto2.jpeg"><div class="caption">Çiçekli bahçemde açmış orkidemsin 🌸</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto3.jpeg"><div class="caption">💖</div>
-        </div></div>
-
-        <div class="slide"><div class="slide-card">
-          <img src="images/foto4.jpeg"><div class="caption">Her şeyin başladığı yerlerden biri 😌</div>
+          <img src="images/foto4.jpeg"><div class="caption">Siyahla beyazın aşkıyız biz 🖤🤍</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
@@ -184,47 +202,43 @@
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto6.jpeg"><div class="caption">Bad girl akşamı 🌙</div>
+          <img src="images/foto6.jpeg"><div class="caption">En bad girl</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto7.jpeg"><div class="caption">Tatlışlık harikası 🥹</div>
+          <img src="images/foto7.jpeg"><div class="caption">Tatlışlık harikasısın sevgilim 🥹</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto8.jpeg"><div class="caption">Uy yaa 😭</div>
+          <img src="images/foto8.jpeg"><div class="caption">Yicemmmm ya</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto9.jpeg"><div class="caption">Bu nasıl araya kaynamış ya 😄</div>
+          <img src="images/foto9.jpeg"><div class="caption">Bu nerden geldi bilmiyorum ama galiba sana olan aşkımdan eriyorum. </div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto10.jpeg"><div class="caption">Ben ne kadar karaysam sen bir o kadar ışık gibisin ✨</div>
+          <img src="images/foto10.jpeg"><div class="caption">Bu arada milli takımımıza dünya kupasında başarılar dileriz. ❤️🤍🇹🇷</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto11.jpeg"><div class="caption">Burada ne yapıyorum ben ya 😭</div>
+          <img src="images/foto11.jpeg"><div class="caption">Yorgun bitik ama bir o kadar da güzel sevgilim. </div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto12.jpeg"><div class="caption">Seninle tatil yapmak >>> her şey 🌴</div>
+          <img src="images/foto12.jpeg"><div class="caption">Seninle tatil yapmayı çok seviyorum. 🌴</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto13.jpeg"><div class="caption">Seninle yemek yemek bile ayrı keyif 🍝</div>
+          <img src="images/foto13.jpeg"><div class="caption">Seninle yemek yemeğe bayılıyorumm. 🍝</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto14.jpeg"><div class="caption">İsmail abi??? 😭</div>
+          <img src="images/foto14.jpeg"><div class="caption">İsmail abii???</div>
         </div></div>
 
         <div class="slide"><div class="slide-card">
-          <img src="images/foto15.jpeg"><div class="caption">Bunun olayı neydi ya 😄</div>
-        </div></div>
-
-        <div class="slide"><div class="slide-card">
-          <img src="images/foto16.jpeg"><div class="caption">İyi ki doğdun, iyi ki varsın ❤️</div>
+          <img src="images/foto16.jpeg"><div class="caption">İyi ki doğdun, iyi ki varsın koalam 🐨</div>
         </div></div>
 
       </div>
@@ -232,7 +246,7 @@
       <button class="slider-btn right" onclick="scrollGallery(1)">›</button>
     </div>
 
-    <div class="counter" id="counter">1 / 16</div>
+    <div class="counter" id="counter">1 / 14</div>
 
   </section>
 
@@ -241,7 +255,8 @@
 <script>
   const slider = document.getElementById("slider");
   const counter = document.getElementById("counter");
-  const total = 16;
+  const total = 14;
+  let confettiTriggered = false;
 
   function scrollGallery(dir) {
     slider.scrollBy({
@@ -253,9 +268,49 @@
   function updateCounter() {
     const index = Math.round(slider.scrollLeft / slider.clientWidth) + 1;
     counter.textContent = index + " / " + total;
+
+    // 🎉 LAST SLIDE CONFETTI
+    if (index === total && !confettiTriggered) {
+      confettiTriggered = true;
+      launchConfetti();
+    }
   }
 
   slider.addEventListener("scroll", updateCounter);
+
+  function launchConfetti() {
+    for (let i = 0; i < 120; i++) {
+      const conf = document.createElement("div");
+      conf.className = "confetti";
+      conf.style.left = Math.random() * 100 + "vw";
+      conf.style.background = `hsl(${Math.random()*360}, 100%, 60%)`;
+      conf.style.animationDuration = (2 + Math.random() * 2) + "s";
+      document.body.appendChild(conf);
+
+      setTimeout(() => conf.remove(), 3000);
+    }
+  }
+
+  // ❤️ HEARTS
+  const heartsContainer = document.getElementById("hearts");
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    const icons = ["❤️","🤍","🖤"];
+    heart.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.fontSize = (16 + Math.random()*20)+"px";
+    heart.style.animationDuration = (4 + Math.random()*5)+"s";
+
+    heartsContainer.appendChild(heart);
+    setTimeout(()=>heart.remove(),9000);
+  }
+
+  setInterval(createHeart, 400);
+
   window.addEventListener("load", updateCounter);
 </script>
 
